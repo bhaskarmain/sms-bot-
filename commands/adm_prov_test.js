@@ -5,10 +5,11 @@ need_reply: false
 auto_retry_tempfail: true
 CMDs*/
 
-var apiKey = "AZm7bG54fbg8557OA3ndETf4O3SWjmIAdCqAKmoS";
-var url = "https://otpx.org/api/stubs/handler_api.php?api_key=" + apiKey + "&action=getBalance";
+var apiUrl = Bot.getProperty("provider_api_url") || "https://otpx.org/api/stubs/handler_api.php";
+var apiKey = Bot.getProperty("provider_api_key") || "AZm7bG54fbg8557OA3ndETf4O3SWjmIAdCqAKmoS";
+var url = apiUrl + "?api_key=" + apiKey + "&action=getBalance";
 
-Bot.sendMessage("⏳ Testing connection to OTPX provider...");
+Bot.sendMessage("⏳ Testing connection to provider:\n<code>" + apiUrl + "</code>...");
 
 HTTP.get({
   url: url,

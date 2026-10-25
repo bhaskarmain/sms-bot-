@@ -30,8 +30,9 @@ User.setProperty("balance", balance - price, "float");
 
 Bot.sendMessage("⏳ <i>Connecting to carrier network & allocating " + srvName + " number...</i>");
 
-var apiKey = "AZm7bG54fbg8557OA3ndETf4O3SWjmIAdCqAKmoS";
-var url = "https://otpx.org/api/stubs/handler_api.php?api_key=" + apiKey + "&action=getNumber&service=" + srvCode + "&country=22";
+var apiUrl = Bot.getProperty("provider_api_url") || "https://otpx.org/api/stubs/handler_api.php";
+var apiKey = Bot.getProperty("provider_api_key") || "AZm7bG54fbg8557OA3ndETf4O3SWjmIAdCqAKmoS";
+var url = apiUrl + "?api_key=" + apiKey + "&action=getNumber&service=" + srvCode + "&country=22";
 
 HTTP.get({
   url: url,

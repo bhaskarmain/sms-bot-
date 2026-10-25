@@ -13,8 +13,9 @@ if (!isAdm) {
   return;
 }
 
-var apiKey = "AZm7bG54fbg8557OA3ndETf4O3SWjmIAdCqAKmoS";
-var url = "https://otpx.org/api/stubs/handler_api.php?api_key=" + apiKey + "&action=getBalance";
+var apiUrl = Bot.getProperty("provider_api_url") || "https://otpx.org/api/stubs/handler_api.php";
+var apiKey = Bot.getProperty("provider_api_key") || "AZm7bG54fbg8557OA3ndETf4O3SWjmIAdCqAKmoS";
+var url = apiUrl + "?api_key=" + apiKey + "&action=getBalance";
 
 HTTP.get({
   url: url,
