@@ -3,24 +3,17 @@ command: ask_utr
 help: Submit 12-Digit UTR
 need_reply: true
 auto_retry_tempfail: true
+answer: <<ANSWER
+✍️ <b>Submit 12-Digit UTR Number</b>
+
+Please send your 12-digit UPI reference number from your payment receipt (e.g. <code>429182374650</code>):
+
+<i>Send /cancel to return.</i>
+ANSWER
 CMD*/
 
-var amt = User.getProperty("pending_deposit_amount") || 50.0;
-
-// If triggered by an inline button click (Callback Query)
-if ((request && request.data) || !message || message == "ask_utr" || message == "on_utr_input") {
-  if (request && request.id) {
-    try {
-      Api.answerCallbackQuery({ callback_query_id: request.id });
-    } catch (e) {}
-  }
-
-  Bot.sendMessage("✍️ <b>Submit 12-Digit UTR Number</b>\n\nAmount: <b>₹" + amt.toFixed(2) + "</b>\n\nPlease send your 12-digit UPI reference number from your payment receipt (e.g. <code>429182374650</code>):\n\n<i>Send /cancel to return.</i>");
-  return;
-}
-
 if (message == "/cancel") {
-  Bot.runCommand("deposit_qr " + amt);
+  Bot.runCommand("menu_wallet");
   return;
 }
 
@@ -30,6 +23,8 @@ if (!/^[0-9a-zA-Z]{12}$/.test(rawUtr)) {
   Bot.sendMessage("⚠️ <b>Invalid UTR Format!</b>\n\nA valid UPI reference number consists of exactly 12 alphanumeric characters (e.g. <code>429182374650</code>).\n\nPlease send the 12-digit UTR now, or send /cancel:");
   return;
 }
+
+var amt = User.getProperty("pending_deposit_amount") || 50.0;
 
 // Generate payment ID
 var payId = "PAY" + Date.now();
