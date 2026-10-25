@@ -19,7 +19,7 @@ var buttons = [
   [
     { title: "🟢 ₹500", command: "deposit_qr 500" },
     { title: "🟢 ₹1000", command: "deposit_qr 1000" },
-    { title: "✏️ Custom Amount", command: "amt_custom" }
+    { title: "✏️ Custom Amount", command: "ask_custom_amt" }
   ],
   [
     { title: "🔙 Back to Wallet", command: "menu_wallet" }
