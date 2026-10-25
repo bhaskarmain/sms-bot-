@@ -21,6 +21,27 @@ if (!/^[0-9a-zA-Z]{12}$/.test(rawUtr)) {
   return;
 }
 
+// Generate payment ID
+var payId = "PAY" + Date.now();
+var queue = Bot.getProperty("pending_payments_queue") || [];
+queue.unshift({
+  id: payId,
+  user_id: user.telegramid,
+  user_name: user.first_name || "User",
+  amount: amt,
+  utr: rawUtr,
+  date: new Date().toLocaleString()
+});
+Bot.setProperty("pending_payments_queue", queue, "json");
+Bot.setProperty("pay_item_" + payId, {
+  id: payId,
+  user_id: user.telegramid,
+  user_name: user.first_name || "User",
+  amount: amt,
+  utr: rawUtr,
+  date: new Date().toLocaleString()
+}, "json");
+
 // Send alert to admin
 var adminId = 8789936408;
 var adminAlert = "🔔 <b>New UPI Deposit Request!</b>\n" +
@@ -28,11 +49,12 @@ var adminAlert = "🔔 <b>New UPI Deposit Request!</b>\n" +
   "👤 User: " + (user.first_name || "User") + " (ID: <code>" + user.telegramid + "</code>)\n" +
   "💰 Amount: <b>₹" + amt.toFixed(2) + "</b>\n" +
   "🔢 Submitted UTR: <code>" + rawUtr + "</code>\n" +
+  "🆔 Payment ID: <code>" + payId + "</code>\n" +
   "━━━━━━━━━━━━━━━━━━━━━━\n" +
   "Verify in your bank app and tap Approve below:";
 
 var adminButtons = [
-  [{ title: "✅ Approve & Credit ₹" + amt.toFixed(2), command: "adm_approve " + user.telegramid + " " + amt + " " + rawUtr }]
+  [{ title: "✅ Approve & Credit ₹" + amt.toFixed(2), command: "adm_pay_approve " + payId }]
 ];
 
 Bot.sendInlineKeyboardToChatWithId(adminId, adminButtons, adminAlert);
