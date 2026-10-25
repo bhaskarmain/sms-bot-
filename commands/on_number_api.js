@@ -1,0 +1,64 @@
+/*CMD
+command: on_number_api
+help: Callback when number is allocated
+need_reply: false
+auto_retry_tempfail: true
+CMDs*/
+
+var p = params.split(" ");
+var srvCode = p[0];
+var price = parseFloat(p[1]);
+var srvName = (p[2] || srvCode).replace(/_/g, " ");
+
+var resp = (content || "").trim();
+
+if (resp.indexOf("ACCESS_NUMBER:") >= 0) {
+  var parts = resp.split(":");
+  var orderId = parts[1];
+  var phone = "+" + parts[2].replace(/^\+/, "");
+
+  var orderData = {
+    order_id: orderId,
+    phone: phone,
+    service_code: srvCode,
+    service_name: srvName,
+    price: price,
+    sms_code: null,
+    created_at: new Date().toISOString()
+  };
+
+  User.setProperty("active_order", orderData, "json");
+
+  var msg = "🎉 <b>Number Allocated Successfully!</b>\n\n" +
+    "🏷 <b>Service:</b> " + srvName + "\n" +
+    "🌍 <b>Country:</b> 🇮🇳 India (+91)\n" +
+    "📱 <b>Phone Number:</b> <code>" + phone + "</code> (tap to copy)\n" +
+    "🆔 <b>Order ID:</b> <code>#" + orderId + "</code>\n" +
+    "⏳ <b>Reserved For:</b> 20 minutes\n\n" +
+    "Enter this number into your app. When the SMS is sent, tap <b>🔄 Refresh SMS</b> below to fetch your OTP.";
+
+  var buttons = [
+    [{ title: "🔄 Refresh SMS Code", command: "check_sms " + orderId }],
+    [
+      { title: "❌ Cancel & Refund", command: "cancel_order " + orderId },
+      { title: "✅ Finish Order", command: "finish_order " + orderId }
+    ],
+    [{ title: "🏠 Main Menu", command: "/start" }]
+  ];
+
+  Bot.sendInlineKeyboard(buttons, msg);
+} else {
+  // Refund balance on provider error
+  var curBal = User.getProperty("balance") || 0.0;
+  User.setProperty("balance", curBal + price, "float");
+
+  var failMsg = "❌ <b>Number Allocation Failed</b>\n\n" +
+    "Provider message: <code>" + resp + "</code>\n\n" +
+    "💵 <b>Refunded:</b> ₹" + price.toFixed(2) + " returned to your wallet balance.\n" +
+    "💳 <b>Current Balance:</b> ₹" + (curBal + price).toFixed(2);
+
+  Bot.sendInlineKeyboard([
+    [{ title: "🔄 Try Another Service", command: "menu_services" }],
+    [{ title: "🏠 Main Menu", command: "/start" }]
+  ], failMsg);
+}
