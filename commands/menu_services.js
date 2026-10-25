@@ -10,9 +10,9 @@ var page = parseInt(p[0]) || 1;
 var layout = p[1] || "linear";
 
 var ALL_SERVICES = [
-  // Page 1
-  { id: 1, code: "wa", name: "WhatsApp", icon: "💬", price: 23.0, stock: 636 },
-  { id: 2, code: "tg", name: "Telegram", icon: "✈️", price: 23.0, stock: 563 },
+  // Page 1 - Top Priority Services (Updated Prices)
+  { id: 1, code: "wa", name: "WhatsApp", icon: "💬", price: 130.0, stock: 636 },
+  { id: 2, code: "tg", name: "Telegram", icon: "✈️", price: 170.0, stock: 563 },
   { id: 3, code: "ig", name: "Instagram", icon: "📸", price: 17.0, stock: 285 },
   { id: 4, code: "fu", name: "Snapchat", icon: "👻", price: 15.0, stock: 212 },
   { id: 5, code: "dr", name: "OpenAI / ChatGPT", icon: "🤖", price: 22.0, stock: 271 },
@@ -84,11 +84,11 @@ var pageServices = ALL_SERVICES.slice(startIdx, startIdx + pageSize);
 
 var buttons = [];
 
-// Top highlights banner row (WhatsApp & Telegram shortcuts) on page 1
+// Top highlights banner row (WhatsApp ₹130 & Telegram ₹170) on page 1
 if (page == 1) {
   buttons.push([
-    { title: "💬 WhatsApp · ₹23.00", command: "srv_view wa WhatsApp 23 1 " + layout },
-    { title: "✈️ Telegram · ₹23.00", command: "srv_view tg Telegram 23 1 " + layout }
+    { title: "💬 WhatsApp · ₹130.00", command: "c_page wa WhatsApp 130 1" },
+    { title: "✈️ Telegram · ₹170.00", command: "c_page tg Telegram 170 1" }
   ]);
 }
 
@@ -98,14 +98,16 @@ if (layout == "grid") {
     var s1 = pageServices[i];
     var s2 = pageServices[i + 1];
     var usd1 = (s1.price / 85.0).toFixed(2);
+    var cmd1 = (s1.code == "wa" || s1.code == "tg") ? ("c_page " + s1.code + " " + s1.name.replace(/[\s\/]/g, "_") + " " + s1.price + " 1") : ("srv_view " + s1.code + " " + s1.name.replace(/[\s\/]/g, "_") + " " + s1.price + " " + page + " " + layout);
     var row = [
-      { title: s1.icon + " " + s1.name + " · ₹" + s1.price.toFixed(2) + " / $" + usd1, command: "srv_view " + s1.code + " " + s1.name.replace(/[\s\/]/g, "_") + " " + s1.price + " " + page + " " + layout }
+      { title: s1.icon + " " + s1.name + " · ₹" + s1.price.toFixed(2) + " / $" + usd1, command: cmd1 }
     ];
     if (s2) {
       var usd2 = (s2.price / 85.0).toFixed(2);
+      var cmd2 = (s2.code == "wa" || s2.code == "tg") ? ("c_page " + s2.code + " " + s2.name.replace(/[\s\/]/g, "_") + " " + s2.price + " 1") : ("srv_view " + s2.code + " " + s2.name.replace(/[\s\/]/g, "_") + " " + s2.price + " " + page + " " + layout);
       row.push({
         title: s2.icon + " " + s2.name + " · ₹" + s2.price.toFixed(2) + " / $" + usd2,
-        command: "srv_view " + s2.code + " " + s2.name.replace(/[\s\/]/g, "_") + " " + s2.price + " " + page + " " + layout
+        command: cmd2
       });
     }
     buttons.push(row);
@@ -115,10 +117,11 @@ if (layout == "grid") {
   for (var j = 0; j < pageServices.length; j++) {
     var s = pageServices[j];
     var usd = (s.price / 85.0).toFixed(2);
+    var cmd = (s.code == "wa" || s.code == "tg") ? ("c_page " + s.code + " " + s.name.replace(/[\s\/]/g, "_") + " " + s.price + " 1") : ("srv_view " + s.code + " " + s.name.replace(/[\s\/]/g, "_") + " " + s.price + " " + page + " " + layout);
     buttons.push([
       {
         title: s.icon + " " + s.name + " · " + s.stock + " in stock · ₹" + s.price.toFixed(2) + " / $" + usd,
-        command: "srv_view " + s.code + " " + s.name.replace(/[\s\/]/g, "_") + " " + s.price + " " + page + " " + layout
+        command: cmd
       }
     ]);
   }

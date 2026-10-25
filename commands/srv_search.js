@@ -18,8 +18,8 @@ if (message == "/cancel") {
 var q = (message || "").toLowerCase().trim();
 
 var ALL_SERVICES = [
-  { code: "wa", name: "WhatsApp", icon: "💬", price: 23.0 },
-  { code: "tg", name: "Telegram", icon: "✈️", price: 23.0 },
+  { code: "wa", name: "WhatsApp", icon: "💬", price: 130.0 },
+  { code: "tg", name: "Telegram", icon: "✈️", price: 170.0 },
   { code: "ig", name: "Instagram", icon: "📸", price: 17.0 },
   { code: "fu", name: "Snapchat", icon: "👻", price: 15.0 },
   { code: "dr", name: "OpenAI / ChatGPT", icon: "🤖", price: 22.0 },
@@ -59,8 +59,9 @@ if (matches.length === 0) {
 var buttons = [];
 for (var j = 0; j < Math.min(matches.length, 8); j++) {
   var m = matches[j];
+  var cmd = (m.code == "wa" || m.code == "tg") ? ("c_page " + m.code + " " + m.name.replace(/[\s\/]/g, "_") + " " + m.price + " 1") : ("srv_view " + m.code + " " + m.name.replace(/[\s\/]/g, "_") + " " + m.price + " 1 linear");
   buttons.push([
-    { title: m.icon + " " + m.name + " · ₹" + m.price.toFixed(2), command: "srv_view " + m.code + " " + m.name.replace(/[\s\/]/g, "_") + " " + m.price + " 1 linear" }
+    { title: m.icon + " " + m.name + " · ₹" + m.price.toFixed(2), command: cmd }
   ]);
 }
 
