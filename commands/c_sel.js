@@ -3,7 +3,7 @@ command: c_sel
 help: Country selected confirmation modal
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var p = (params || "").trim().split(" ");
 var srvCode = p[0] || "wa";

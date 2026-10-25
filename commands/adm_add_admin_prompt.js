@@ -3,7 +3,7 @@ command: adm_add_admin_prompt
 help: Prompt to add new admin
 need_reply: true
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var adminId = 8789936408;
 if (user.telegramid != adminId) {

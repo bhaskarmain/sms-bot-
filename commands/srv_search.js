@@ -3,7 +3,7 @@ command: srv_search
 help: Search services by name
 need_reply: true
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 if (!message || message == "srv_search") {
   Bot.sendMessage("🔮 <b>Search Services</b>\n\nType the service name you want (e.g. <code>WhatsApp</code>, <code>Telegram</code>, <code>Instagram</code>, <code>Netflix</code>):\n\n<i>Send /cancel to return to catalog.</i>");

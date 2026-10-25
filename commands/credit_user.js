@@ -3,7 +3,7 @@ command: credit_user
 help: Internal credit execution in user context
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var p = (params || "").trim().split(" ");
 var amt = parseFloat(p[0]) || 0.0;

@@ -3,7 +3,7 @@ command: deposit_qr
 help: Generate UPI payment QR photo & instructions
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var amt = parseFloat(params) || 50.0;
 User.setProperty("pending_deposit_amount", amt, "float");

@@ -3,7 +3,7 @@ command: adm_srv_view
 help: Service details & toggle in admin
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var p = (params || "").trim().split(" ");
 var code = p[0];

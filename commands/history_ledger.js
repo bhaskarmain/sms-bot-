@@ -3,7 +3,7 @@ command: history_ledger
 help: Show recent wallet transactions
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var history = User.getProperty("wallet_history") || [];
 

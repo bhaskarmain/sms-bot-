@@ -3,7 +3,7 @@ command: active_orders
 help: View active virtual number order
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var ord = User.getProperty("active_order");
 

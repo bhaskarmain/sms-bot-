@@ -3,7 +3,7 @@ command: c_page
 help: Select country for service with OTPX country IDs and colored buttons
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var p = (params || "").trim().split(" ");
 var srvCode = p[0] || "wa";

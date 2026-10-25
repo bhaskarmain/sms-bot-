@@ -3,7 +3,7 @@ command: tm_on_token
 help: Handle Mail.tm JWT token and show inbox
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 try {
   var data = JSON.parse(content);

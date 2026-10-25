@@ -3,7 +3,7 @@ command: on_sms_api
 help: Callback when SMS status is returned
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var orderId = params;
 var resp = (content || "").trim();

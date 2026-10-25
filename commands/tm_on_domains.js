@@ -3,7 +3,7 @@ command: tm_on_domains
 help: Handle Mail.tm domains response
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 try {
   var data = JSON.parse(content);

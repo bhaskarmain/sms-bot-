@@ -3,7 +3,7 @@ command: adm_remove_admin
 help: Remove an admin from team
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var adminId = 8789936408;
 if (user.telegramid != adminId) {

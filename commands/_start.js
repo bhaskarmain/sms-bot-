@@ -3,7 +3,7 @@ command: /start
 help: Start the SMS bot
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var balance = User.getProperty("balance");
 if (balance == null) {

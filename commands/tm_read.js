@@ -3,7 +3,7 @@ command: tm_read
 help: Read specific Temp Mail message
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var msgId = (params || "").trim();
 var token = User.getProperty("tm_token");

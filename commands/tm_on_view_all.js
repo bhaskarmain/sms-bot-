@@ -3,7 +3,7 @@ command: tm_on_view_all
 help: Callback for list of all inbox messages
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var address = User.getProperty("tm_email") || "";
 var messages = [];

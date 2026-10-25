@@ -3,7 +3,7 @@ command: cancel_order
 help: Cancel order & refund
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var orderId = (params || "").trim();
 var ord = User.getProperty("active_order");

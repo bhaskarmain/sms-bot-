@@ -3,9 +3,16 @@ command: ask_custom_amt
 help: Custom deposit amount input
 need_reply: true
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
-if (!message || message == "ask_custom_amt" || message == "amt_custom") {
+// If triggered by an inline button click (Callback Query)
+if ((request && request.data) || !message || message == "ask_custom_amt" || message == "amt_custom") {
+  if (request && request.id) {
+    try {
+      Api.answerCallbackQuery({ callback_query_id: request.id });
+    } catch (e) {}
+  }
+
   Bot.sendMessage("✍️ <b>Enter Custom Amount (in INR):</b>\n\nMin: ₹10.00 | Max: ₹1000.00\n\nPlease send the amount now (e.g. <code>150</code>):\n\n<i>Send /cancel to return to menu.</i>");
   return;
 }

@@ -3,7 +3,7 @@ command: tm_refresh
 help: Refresh disposable email inbox
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var token = User.getProperty("tm_token");
 if (!token) {

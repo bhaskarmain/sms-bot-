@@ -3,7 +3,7 @@ command: menu_history_orders
 help: Show past orders history
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var history = User.getProperty("orders_history") || [];
 

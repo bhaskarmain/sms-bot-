@@ -3,7 +3,7 @@ command: adm_srv_toggle
 help: Toggle service active/disabled
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var code = (params || "").trim();
 if (!code) return;

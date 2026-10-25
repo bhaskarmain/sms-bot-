@@ -3,7 +3,7 @@ command: finish_order
 help: Complete active order
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var orderId = params;
 var ord = User.getProperty("active_order");

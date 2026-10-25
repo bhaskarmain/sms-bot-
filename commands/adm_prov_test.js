@@ -3,7 +3,7 @@ command: adm_prov_test
 help: Test OTPX connection
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var apiUrl = Bot.getProperty("provider_api_url") || "https://otpx.org/api/stubs/handler_api.php";
 var apiKey = Bot.getProperty("provider_api_key") || "AZm7bG54fbg8557OA3ndETf4O3SWjmIAdCqAKmoS";

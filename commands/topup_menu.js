@@ -3,7 +3,7 @@ command: topup_menu
 help: Topup amount selection
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var text = "💳 <b>Add Funds to Wallet</b>\n\n" +
   "Select a deposit amount below or enter a custom amount:\n" +

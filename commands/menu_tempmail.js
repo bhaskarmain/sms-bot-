@@ -3,7 +3,7 @@ command: menu_tempmail
 help: Disposable Temp Mail Home
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var token = User.getProperty("tm_token");
 var address = User.getProperty("tm_email");

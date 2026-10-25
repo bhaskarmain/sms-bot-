@@ -3,7 +3,7 @@ command: tm_on_messages
 help: Render disposable email view with messages
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var address = User.getProperty("tm_email") || "disposable@mail.tm";
 var messages = [];

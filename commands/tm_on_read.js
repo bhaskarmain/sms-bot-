@@ -3,7 +3,7 @@ command: tm_on_read
 help: Display detailed message content and extracted OTP
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 try {
   var detail = JSON.parse(content);

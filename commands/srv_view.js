@@ -3,7 +3,7 @@ command: srv_view
 help: Service purchase confirmation view
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var p = (params || "").trim().split(" ");
 var srvCode = p[0];

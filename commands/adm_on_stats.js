@@ -3,7 +3,7 @@ command: adm_on_stats
 help: Callback for live system metrics
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var res = (content || "").trim();
 var provBal = "37.21";

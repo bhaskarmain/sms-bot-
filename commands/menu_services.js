@@ -3,7 +3,7 @@ command: menu_services
 help: Virtual SMS Numbers Catalog (Exact UI & Colored Buttons matching screenshot)
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var p = (params || "").trim().split(" ");
 var page = parseInt(p[0]) || 1;

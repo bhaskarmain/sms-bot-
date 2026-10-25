@@ -3,7 +3,7 @@ command: menu_wallet
 help: User Wallet Management
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var balance = User.getProperty("balance") || 0.0;
 var name = user.first_name || "User";

@@ -3,7 +3,7 @@ command: adm_on_prov_test
 help: Callback for provider connection test
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var res = (content || "").trim();
 

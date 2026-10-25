@@ -3,7 +3,7 @@ command: menu_help
 help: Help and FAQ
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var support = "@Talk_tooo_admin_bot";
 

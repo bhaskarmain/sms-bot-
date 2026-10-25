@@ -3,7 +3,7 @@ command: on_admin_balance
 help: Callback for admin balance check
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var res = (content || "").trim();
 var otpxBal = "0.00";

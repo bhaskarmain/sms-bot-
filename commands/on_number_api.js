@@ -3,7 +3,7 @@ command: on_number_api
 help: Callback when number is allocated
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var p = params.split(" ");
 var srvCode = p[0];

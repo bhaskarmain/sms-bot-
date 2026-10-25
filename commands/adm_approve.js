@@ -3,7 +3,7 @@ command: adm_approve
 help: Admin approve deposit command
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var adminId = 8789936408;
 

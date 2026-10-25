@@ -3,7 +3,7 @@ command: check_sms
 help: Check status of SMS
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var orderId = (params || "").trim();
 if (!orderId) return;

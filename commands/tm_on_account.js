@@ -3,7 +3,7 @@ command: tm_on_account
 help: Handle account creation & request auth token
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var email = User.getProperty("tm_email");
 var pass = User.getProperty("tm_pass");

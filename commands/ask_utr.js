@@ -3,11 +3,18 @@ command: ask_utr
 help: Submit 12-Digit UTR
 need_reply: true
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var amt = User.getProperty("pending_deposit_amount") || 50.0;
 
-if (!message || message == "ask_utr" || message == "on_utr_input") {
+// If triggered by an inline button click (Callback Query)
+if ((request && request.data) || !message || message == "ask_utr" || message == "on_utr_input") {
+  if (request && request.id) {
+    try {
+      Api.answerCallbackQuery({ callback_query_id: request.id });
+    } catch (e) {}
+  }
+
   Bot.sendMessage("✍️ <b>Submit 12-Digit UTR Number</b>\n\nAmount: <b>₹" + amt.toFixed(2) + "</b>\n\nPlease send your 12-digit UPI reference number from your payment receipt (e.g. <code>429182374650</code>):\n\n<i>Send /cancel to return.</i>");
   return;
 }

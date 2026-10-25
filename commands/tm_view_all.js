@@ -3,7 +3,7 @@ command: tm_view_all
 help: View all messages in Temp Mail inbox
 need_reply: false
 auto_retry_tempfail: true
-CMDs*/
+CMD*/
 
 var token = User.getProperty("tm_token");
 var address = User.getProperty("tm_email");
