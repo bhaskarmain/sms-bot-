@@ -11,12 +11,13 @@ if (balance == null) {
   User.setProperty("balance", 0.0, "float");
 }
 
-var text = "👋 <b>Welcome to SMS Verification Bot!</b>\n\n" +
-  "Get instant virtual phone numbers for receiving SMS & OTP verification codes from all popular platforms.\n\n" +
-  "⚡ <b>Fast Delivery:</b> Instant SMS routing\n" +
-  "🔒 <b>100% Private:</b> Non-VoIP numbers\n" +
-  "💰 <b>Your Balance:</b> ₹" + balance.toFixed(2) + "\n\n" +
-  "Select an option below to get started:";
+var welcome = "👋 <b>Welcome to SMS Verification Bot!</b>\n\n" +
+  "Get instant virtual phone numbers for receiving SMS & OTP verification codes from all popular online platforms securely.\n\n" +
+  "⚡ Fast SMS Delivery\n" +
+  "🔒 100% Private & Anonymous\n" +
+  "💳 Instant UPI Auto-Wallet Recharge\n\n" +
+  "Use the menu below to browse services or manage your wallet.\n\n" +
+  "💰 <b>Your Balance:</b> ₹" + balance.toFixed(2);
 
 var buttons = [
   [
@@ -24,17 +25,21 @@ var buttons = [
   ],
   [
     { title: "💳 Wallet & Deposit", command: "menu_wallet" },
-    { title: "📱 Active Orders", command: "active_orders" }
+    { title: "📧 Temporary Email", command: "menu_tempmail" }
   ],
   [
-    { title: "💬 Support", url: "https://t.me/Talk_tooo_admin_bot" }
+    { title: "📱 Active Orders", command: "active_orders" },
+    { title: "📜 Order History", command: "menu_history_orders" }
+  ],
+  [
+    { title: "💬 Help & FAQ", command: "menu_help" }
   ]
 ];
 
 if (user.telegramid == 8789936408) {
   buttons.push([
-    { title: "👑 Admin Control Panel", command: "/admin" }
+    { title: "👑 Admin Control Panel", command: "admin_dashboard" }
   ]);
 }
 
-Bot.sendInlineKeyboard(buttons, text, { is_reply: false });
+Bot.sendInlineKeyboard(buttons, welcome, { is_reply: false });
