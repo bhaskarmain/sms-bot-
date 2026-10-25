@@ -3,13 +3,7 @@ command: ask_utr
 help: Submit 12-Digit UTR
 need_reply: true
 auto_retry_tempfail: true
-answer: <<ANSWER
-✍️ <b>Submit 12-Digit UTR Number</b>
-
-Please send your 12-digit UPI reference number from your payment receipt (e.g. <code>429182374650</code>):
-
-<i>Send /cancel to return.</i>
-ANSWER
+answer: ✍️ Please send your 12-digit UPI reference / UTR number from your payment receipt (e.g. 429182374650):
 CMD*/
 
 if (message == "/cancel") {
