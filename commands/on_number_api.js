@@ -5,12 +5,12 @@ need_reply: false
 auto_retry_tempfail: true
 CMD*/
 
-var p = params.split(" ");
-var srvCode = p[0];
-var price = parseFloat(p[1]);
-var srvName = (p[2] || srvCode).replace(/_/g, " ");
-var countryId = p[3] || "22";
-var countryName = (p[4] || "India").replace(/_/g, " ");
+var p = (params || "").trim().split(" ");
+var srvCode = p[0] || User.getProperty("pending_srv_code") || "wa";
+var price = parseFloat(p[1]) || User.getProperty("pending_srv_price") || 130.0;
+var srvName = ((p[2] || User.getProperty("pending_srv_name") || srvCode) + "").replace(/_/g, " ");
+var countryId = p[3] || User.getProperty("pending_country_id") || "22";
+var countryName = ((p[4] || User.getProperty("pending_country_name") || "India") + "").replace(/_/g, " ");
 
 var resp = (content || "").trim();
 
@@ -81,7 +81,7 @@ if (resp.indexOf("ACCESS_NUMBER:") >= 0) {
   User.setProperty("balance", curBal + price, "float");
 
   var failMsg = "❌ <b>Number Allocation Failed</b>\n\n" +
-    "Provider message: <code>" + resp + "</code>\n\n" +
+    "Provider message: <code>" + (resp || "No response from provider") + "</code>\n\n" +
     "💵 <b>Refunded:</b> ₹" + price.toFixed(2) + " returned to your wallet balance.\n" +
     "💳 <b>Current Balance:</b> ₹" + (curBal + price).toFixed(2);
 

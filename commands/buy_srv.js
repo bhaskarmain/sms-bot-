@@ -31,6 +31,13 @@ if (balance < price) {
 // Deduct balance
 User.setProperty("balance", balance - price, "float");
 
+// Save pending order details in User properties so the HTTP callback can access them reliably
+User.setProperty("pending_srv_code", srvCode, "string");
+User.setProperty("pending_srv_price", price, "float");
+User.setProperty("pending_srv_name", srvName, "string");
+User.setProperty("pending_country_id", countryId, "string");
+User.setProperty("pending_country_name", countryName, "string");
+
 Bot.sendMessage("⏳ <i>Connecting to carrier network & allocating " + srvName + " (" + countryName + ") number...</i>");
 
 var apiUrl = Bot.getProperty("provider_api_url") || "https://otpx.org/api/stubs/handler_api.php";
@@ -39,5 +46,5 @@ var url = apiUrl + "?api_key=" + apiKey + "&action=getNumber&service=" + srvCode
 
 HTTP.get({
   url: url,
-  success: "on_number_api " + srvCode + " " + price + " " + srvName.replace(/\s+/g, "_") + " " + countryId + " " + countryName.replace(/\s+/g, "_")
+  success: "on_number_api"
 });

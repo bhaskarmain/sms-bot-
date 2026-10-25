@@ -5,9 +5,9 @@ need_reply: false
 auto_retry_tempfail: true
 CMD*/
 
-var orderId = params;
-var resp = (content || "").trim();
 var ord = User.getProperty("active_order") || {};
+var orderId = (params || "").trim() || User.getProperty("checking_order_id") || (ord && ord.order_id);
+var resp = (content || "").trim();
 
 if (resp.indexOf("STATUS_OK:") >= 0) {
   var code = resp.split(":")[1];
@@ -29,7 +29,7 @@ if (resp.indexOf("STATUS_OK:") >= 0) {
 } else {
   var waitMsg = "⏳ <b>No SMS received yet.</b>\n\n" +
     "📱 <b>Phone:</b> <code>" + (ord.phone || "") + "</code>\n" +
-    "Provider status: <code>" + resp + "</code>\n\n" +
+    "Provider status: <code>" + (resp || "STATUS_WAIT_CODE") + "</code>\n\n" +
     "Please send the OTP request from your application, wait 10-15 seconds, and tap <b>🔄 Refresh SMS Code</b> below.";
 
   var buttons = [
