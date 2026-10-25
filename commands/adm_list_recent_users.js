@@ -26,7 +26,7 @@ for (var i = 0; i < recentUsers.length; i++) {
 }
 
 var buttons = [
-  [{ title: "🔙 Back to Users", command: "adm_users" }]
+  [{ title: "🔙 Back to Users", command: "adm_users", style: "primary" }]
 ];
 
 Bot.sendInlineKeyboard(buttons, text);

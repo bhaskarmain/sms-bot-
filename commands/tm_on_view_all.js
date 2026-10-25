@@ -29,13 +29,13 @@ for (var i = 0; i < Math.min(messages.length, 10); i++) {
   var sender = (m.from && m.from.address ? m.from.address : "Unknown").split("@")[0];
   var subj = (m.subject || "No Subject").substring(0, 22);
   buttons.push([
-    { title: "✉️ #" + (i + 1) + " [" + sender + "] " + subj, command: "tm_read " + m.id }
+    { title: "✉️ #" + (i + 1) + " [" + sender + "] " + subj, command: "tm_read " + m.id, style: "success" }
   ]);
 }
 
 buttons.push([
-  { title: "🔄 Refresh", command: "tm_refresh" },
-  { title: "🔙 Back", command: "menu_tempmail" }
+  { title: "🔄 Refresh", command: "tm_refresh", style: "primary" },
+  { title: "🔙 Back", command: "menu_tempmail", style: "primary" }
 ]);
 
 Bot.sendInlineKeyboard(buttons, text);

@@ -23,9 +23,9 @@ var text = "🏷 <b>Service:</b> " + srvName + "\n" +
   "⏱ <i>Number is reserved for 20 minutes.</i>";
 
 var buttons = [
-  [{ title: "✅ Purchase for ₹" + price.toFixed(2), command: "buy_srv " + srvCode + " " + price + " " + srvName.replace(/\s+/g, "_") + " " + countryId + " " + countryName.replace(/\s+/g, "_") }],
-  [{ title: "🌍 Change Country", command: "c_page " + srvCode + " " + srvName.replace(/\s+/g, "_") + " " + price + " 1" }],
-  [{ title: "🔙 Back to Services", command: "menu_services" }]
+  [{ title: "✅ Purchase for ₹" + price.toFixed(2), command: "buy_srv " + srvCode + " " + price + " " + srvName.replace(/\s+/g, "_") + " " + countryId + " " + countryName.replace(/\s+/g, "_"), style: "success" }],
+  [{ title: "🌍 Change Country", command: "c_page " + srvCode + " " + srvName.replace(/\s+/g, "_") + " " + price + " 1", style: "primary" }],
+  [{ title: "🔙 Back to Services", command: "menu_services", style: "primary" }]
 ];
 
 Bot.sendInlineKeyboard(buttons, text);

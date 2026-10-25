@@ -31,9 +31,9 @@ var text = "🔍 <b>Payment Verification Details</b>\n\n" +
   "Verify UTR in your bank app. Tap Approve to credit user balance.";
 
 var buttons = [
-  [{ title: "✅ Approve & Credit", command: "adm_pay_approve " + p.id }],
-  [{ title: "❌ Reject Payment", command: "adm_pay_reject " + p.id }],
-  [{ title: "🔙 Back to Payments", command: "adm_payments" }]
+  [{ title: "✅ Approve & Credit", command: "adm_pay_approve " + p.id, style: "success" }],
+  [{ title: "❌ Reject Payment", command: "adm_pay_reject " + p.id, style: "danger" }],
+  [{ title: "🔙 Back to Payments", command: "adm_payments", style: "primary" }]
 ];
 
 Bot.sendInlineKeyboard(buttons, text);

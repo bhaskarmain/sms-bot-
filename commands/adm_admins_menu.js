@@ -26,17 +26,17 @@ for (var i = 0; i < adminList.length; i++) {
 
   if (!isPrimary) {
     buttons.push([
-      { title: "❌ Remove Admin (" + aid + ")", command: "adm_remove_admin " + aid }
+      { title: "❌ Remove Admin (" + aid + ")", command: "adm_remove_admin " + aid, style: "danger" }
     ]);
   }
 }
 
 buttons.push([
-  { title: "➕ Add New Admin by ID", command: "adm_add_admin_prompt" }
+  { title: "➕ Add New Admin by ID", command: "adm_add_admin_prompt", style: "success" }
 ]);
 buttons.push([
-  { title: "🔄 Refresh List", command: "adm_admins_menu" },
-  { title: "🔙 Back to Dashboard", command: "admin_dashboard" }
+  { title: "🔄 Refresh List", command: "adm_admins_menu", style: "primary" },
+  { title: "🔙 Back to Dashboard", command: "admin_dashboard", style: "primary" }
 ]);
 
 Bot.sendInlineKeyboard(buttons, text);

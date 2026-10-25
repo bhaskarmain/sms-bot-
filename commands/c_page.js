@@ -1,6 +1,6 @@
 /*CMD
 command: c_page
-help: Select country for service with OTPX country IDs
+help: Select country for service with OTPX country IDs and colored buttons
 need_reply: false
 auto_retry_tempfail: true
 CMDs*/
@@ -72,34 +72,35 @@ for (var i = 0; i < pageCountries.length; i += 2) {
   var c1 = pageCountries[i];
   var c2 = pageCountries[i + 1];
   var row = [
-    { title: c1.flag + " " + c1.name + " (₹" + c1.price.toFixed(2) + ")", command: "c_sel " + srvCode + " " + srvName.replace(/\s+/g, "_") + " " + c1.price + " " + c1.id + " " + c1.name.replace(/\s+/g, "_") + " " + c1.dial + " " + c1.flag }
+    { title: c1.flag + " " + c1.name + " (₹" + c1.price.toFixed(2) + ")", command: "c_sel " + srvCode + " " + srvName.replace(/\s+/g, "_") + " " + c1.price + " " + c1.id + " " + c1.name.replace(/\s+/g, "_") + " " + c1.dial + " " + c1.flag, style: "success" }
   ];
   if (c2) {
     row.push({
       title: c2.flag + " " + c2.name + " (₹" + c2.price.toFixed(2) + ")",
-      command: "c_sel " + srvCode + " " + srvName.replace(/\s+/g, "_") + " " + c2.price + " " + c2.id + " " + c2.name.replace(/\s+/g, "_") + " " + c2.dial + " " + c2.flag
+      command: "c_sel " + srvCode + " " + srvName.replace(/\s+/g, "_") + " " + c2.price + " " + c2.id + " " + c2.name.replace(/\s+/g, "_") + " " + c2.dial + " " + c2.flag,
+      style: "success"
     });
   }
   buttons.push(row);
 }
 
-// Navigation row
+// Navigation row (Cyan / Primary style)
 var nav = [];
 if (page > 1) {
-  nav.push({ title: "◀️", command: "c_page " + srvCode + " " + srvName.replace(/\s+/g, "_") + " " + basePrice + " " + (page - 1) });
+  nav.push({ title: "◀️", command: "c_page " + srvCode + " " + srvName.replace(/\s+/g, "_") + " " + basePrice + " " + (page - 1), style: "primary" });
 } else {
-  nav.push({ title: "◀️", command: "c_page " + srvCode + " " + srvName.replace(/\s+/g, "_") + " " + basePrice + " 1" });
+  nav.push({ title: "◀️", command: "c_page " + srvCode + " " + srvName.replace(/\s+/g, "_") + " " + basePrice + " 1", style: "primary" });
 }
-nav.push({ title: "📄 " + page + "/" + totalPages, command: "c_page " + srvCode + " " + srvName.replace(/\s+/g, "_") + " " + basePrice + " " + page });
+nav.push({ title: "📄 " + page + "/" + totalPages, command: "c_page " + srvCode + " " + srvName.replace(/\s+/g, "_") + " " + basePrice + " " + page, style: "primary" });
 if (page < totalPages) {
-  nav.push({ title: "▶️", command: "c_page " + srvCode + " " + srvName.replace(/\s+/g, "_") + " " + basePrice + " " + (page + 1) });
+  nav.push({ title: "▶️", command: "c_page " + srvCode + " " + srvName.replace(/\s+/g, "_") + " " + basePrice + " " + (page + 1), style: "primary" });
 } else {
-  nav.push({ title: "▶️", command: "c_page " + srvCode + " " + srvName.replace(/\s+/g, "_") + " " + basePrice + " " + totalPages });
+  nav.push({ title: "▶️", command: "c_page " + srvCode + " " + srvName.replace(/\s+/g, "_") + " " + basePrice + " " + totalPages, style: "primary" });
 }
 buttons.push(nav);
 
 buttons.push([
-  { title: "🔙 Back to Services", command: "menu_services" }
+  { title: "🔙 Back to Services", command: "menu_services", style: "primary" }
 ]);
 
 var text = "🌍 <b>Select Country for " + srvName + "</b>\n\n" +

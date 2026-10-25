@@ -23,10 +23,10 @@ var text = "📢 <b>Force Channel Join Settings</b>\n\n" +
   "🔗 <b>Channel URL:</b> <code>" + channelUrl + "</code>";
 
 var buttons = [
-  [{ title: (isEnabled ? "🔴 Turn OFF Force Sub" : "🟢 Turn ON Force Sub"), command: "adm_toggle_fsub" }],
-  [{ title: "✏️ Set Channel ID / @Username", command: "adm_set_fsub_id" }],
-  [{ title: "🔗 Set Channel Invite Link", command: "adm_set_fsub_url" }],
-  [{ title: "🔙 Back to Admin Dashboard", command: "admin_dashboard" }]
+  [{ title: (isEnabled ? "🔴 Turn OFF Force Sub" : "🟢 Turn ON Force Sub"), command: "adm_toggle_fsub", style: isEnabled ? "danger" : "success" }],
+  [{ title: "✏️ Set Channel ID / @Username", command: "adm_set_fsub_id", style: "primary" }],
+  [{ title: "🔗 Set Channel Invite Link", command: "adm_set_fsub_url", style: "primary" }],
+  [{ title: "🔙 Back to Admin Dashboard", command: "admin_dashboard", style: "primary" }]
 ];
 
 Bot.sendInlineKeyboard(buttons, text);

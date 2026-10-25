@@ -43,31 +43,31 @@ var fsubBadge = isFsub ? "🟢 Force Sub: ON" : "🔹 Force Sub: OFF";
 
 var buttons = [
   [
-    { title: "🔹 Live Dashboard", command: "adm_stats" },
-    { title: payBadge, command: "adm_payments" }
+    { title: "🔹 Live Dashboard", command: "adm_stats", style: "primary" },
+    { title: payBadge, command: "adm_payments", style: pendingCount > 0 ? "danger" : "success" }
   ],
   [
-    { title: "👥 Users Manager", command: "adm_users" },
-    { title: "👑 Admin Team", command: "adm_admins_menu" }
+    { title: "👥 Users Manager", command: "adm_users", style: "primary" },
+    { title: "👑 Admin Team", command: "adm_admins_menu", style: "primary" }
   ],
   [
-    { title: "🔹 Services & Pricing", command: "adm_services" },
-    { title: "🔹 Orders Tracking", command: "adm_orders" }
+    { title: "🔹 Services & Pricing", command: "adm_services", style: "primary" },
+    { title: "🔹 Orders Tracking", command: "adm_orders", style: "primary" }
   ],
   [
-    { title: "🔹 Broadcast Msg", command: "adm_broadcast" },
-    { title: fsubBadge, command: "adm_forcesub_menu" }
+    { title: "🔹 Broadcast Msg", command: "adm_broadcast", style: "primary" },
+    { title: fsubBadge, command: "adm_forcesub_menu", style: isFsub ? "success" : "primary" }
   ],
   [
-    { title: "🔹 Provider API", command: "adm_provider" },
-    { title: "🔹 UPI Gateway", command: "adm_upi_settings" }
+    { title: "🔹 Provider API", command: "adm_provider", style: "primary" },
+    { title: "🔹 UPI Gateway", command: "adm_upi_settings", style: "primary" }
   ],
   [
-    { title: maintBadge, command: "adm_toggle_maintenance" },
-    { title: "🔹 Audit Logs", command: "adm_audit_logs" }
+    { title: maintBadge, command: "adm_toggle_maintenance", style: isMaint ? "danger" : "primary" },
+    { title: "🔹 Audit Logs", command: "adm_audit_logs", style: "primary" }
   ],
   [
-    { title: "🔵 User Main Menu", command: "/start" }
+    { title: "🔵 User Main Menu", command: "/start", style: "primary" }
   ]
 ];
 

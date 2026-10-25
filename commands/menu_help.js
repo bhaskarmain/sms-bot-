@@ -20,7 +20,7 @@ var text = "ℹ️ <b>Help & Frequently Asked Questions</b>\n\n" +
   "Contact official support at " + support;
 
 var buttons = [
-  [{ title: "🏠 Main Menu", command: "/start" }]
+  [{ title: "🏠 Main Menu", command: "/start", style: "primary" }]
 ];
 
 Bot.sendInlineKeyboard(buttons, text);

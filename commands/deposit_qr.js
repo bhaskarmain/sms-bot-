@@ -31,21 +31,21 @@ var text = "💳 <b>Instant UPI Payment (Scan & Pay)</b>\n\n" +
   "3. Tap <b>✍️ Submit 12-Digit UTR</b> below and send the UPI Reference Number.";
 
 var telegramButtons = [
-  [{ text: "✍️ Submit 12-Digit UTR", callback_data: "ask_utr" }],
+  [{ text: "✍️ Submit 12-Digit UTR", callback_data: "ask_utr", style: "success" }],
   [
-    { text: "🔄 Check Status", callback_data: "deposit_qr " + amt },
-    { text: "❌ Cancel Deposit", callback_data: "menu_wallet" }
+    { text: "🔄 Check Status", callback_data: "deposit_qr " + amt, style: "primary" },
+    { text: "❌ Cancel Deposit", callback_data: "menu_wallet", style: "danger" }
   ],
-  [{ text: "🔙 Back to Wallet", callback_data: "menu_wallet" }]
+  [{ text: "🔙 Back to Wallet", callback_data: "menu_wallet", style: "primary" }]
 ];
 
 var bbButtons = [
-  [{ title: "✍️ Submit 12-Digit UTR", command: "ask_utr" }],
+  [{ title: "✍️ Submit 12-Digit UTR", command: "ask_utr", style: "success" }],
   [
-    { title: "🔄 Check Status", command: "deposit_qr " + amt },
-    { title: "❌ Cancel Deposit", command: "menu_wallet" }
+    { title: "🔄 Check Status", command: "deposit_qr " + amt, style: "primary" },
+    { title: "❌ Cancel Deposit", command: "menu_wallet", style: "danger" }
   ],
-  [{ title: "🔙 Back to Wallet", command: "menu_wallet" }]
+  [{ title: "🔙 Back to Wallet", command: "menu_wallet", style: "primary" }]
 ];
 
 // Try sending native photo via Telegram Bot API

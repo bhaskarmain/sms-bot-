@@ -22,8 +22,8 @@ if (balance < price) {
     "Please top up your wallet using UPI to purchase numbers.";
   
   Bot.sendInlineKeyboard([
-    [{ title: "💳 Add Balance (UPI QR)", command: "menu_wallet" }],
-    [{ title: "🔙 Back to Services", command: "menu_services" }]
+    [{ title: "💳 Add Balance (UPI QR)", command: "menu_wallet", style: "success" }],
+    [{ title: "🔙 Back to Services", command: "menu_services", style: "primary" }]
   ], errText);
   return;
 }

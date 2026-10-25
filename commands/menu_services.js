@@ -1,6 +1,6 @@
 /*CMD
 command: menu_services
-help: Virtual SMS Numbers Catalog (Exact UI matching all_in_one.js)
+help: Virtual SMS Numbers Catalog (Exact UI & Colored Buttons matching screenshot)
 need_reply: false
 auto_retry_tempfail: true
 CMDs*/
@@ -93,15 +93,15 @@ var pageServices = ALL_SERVICES.slice(startIdx, startIdx + pageSize);
 
 var buttons = [];
 
-// Top highlights banner row (WhatsApp ₹130 & Telegram ₹170) on page 1
+// Top highlights banner row (Cyan / Primary style matching screenshot) on page 1
 if (page == 1) {
   buttons.push([
-    { title: "💬 WhatsApp · ₹130.00", command: "c_page wa WhatsApp 130 1" },
-    { title: "✈️ Telegram · ₹170.00", command: "c_page tg Telegram 170 1" }
+    { title: "💬 WhatsApp · ₹130.00", command: "c_page wa WhatsApp 130 1", style: "primary" },
+    { title: "✈️ Telegram · ₹170.00", command: "c_page tg Telegram 170 1", style: "primary" }
   ]);
 }
 
-// Main service items (Linear full-width or 2-column Grid)
+// Main service items (Green / Success style matching screenshot)
 if (layout == "grid") {
   for (var i = 0; i < pageServices.length; i += 2) {
     var s1 = pageServices[i];
@@ -109,20 +109,21 @@ if (layout == "grid") {
     var usd1 = (s1.price / 85.0).toFixed(2);
     var cmd1 = (s1.code == "wa" || s1.code == "tg") ? ("c_page " + s1.code + " " + s1.name.replace(/[\s\/]/g, "_") + " " + s1.price + " 1") : ("srv_view " + s1.code + " " + s1.name.replace(/[\s\/]/g, "_") + " " + s1.price + " " + page + " " + layout);
     var row = [
-      { title: s1.icon + " " + s1.name + " · ₹" + s1.price.toFixed(2) + " / $" + usd1, command: cmd1 }
+      { title: s1.icon + " " + s1.name + " · ₹" + s1.price.toFixed(2) + " / $" + usd1, command: cmd1, style: "success" }
     ];
     if (s2) {
       var usd2 = (s2.price / 85.0).toFixed(2);
       var cmd2 = (s2.code == "wa" || s2.code == "tg") ? ("c_page " + s2.code + " " + s2.name.replace(/[\s\/]/g, "_") + " " + s2.price + " 1") : ("srv_view " + s2.code + " " + s2.name.replace(/[\s\/]/g, "_") + " " + s2.price + " " + page + " " + layout);
       row.push({
         title: s2.icon + " " + s2.name + " · ₹" + s2.price.toFixed(2) + " / $" + usd2,
-        command: cmd2
+        command: cmd2,
+        style: "success"
       });
     }
     buttons.push(row);
   }
 } else {
-  // Linear layout exactly matching screenshot
+  // Linear layout with green success style matching screenshot
   for (var j = 0; j < pageServices.length; j++) {
     var s = pageServices[j];
     var usd = (s.price / 85.0).toFixed(2);
@@ -130,37 +131,38 @@ if (layout == "grid") {
     buttons.push([
       {
         title: s.icon + " " + s.name + " · " + s.stock + " in stock · ₹" + s.price.toFixed(2) + " / $" + usd,
-        command: cmd
+        command: cmd,
+        style: "success"
       }
     ]);
   }
 }
 
-// Pagination row (matching screenshot: 1/6 | 2 › or ‹ 1 | 2/6 | 3 ›)
+// Pagination row (Cyan / Primary style matching screenshot)
 var navRow = [];
 if (page > 1) {
-  navRow.push({ title: "‹ " + (page - 1), command: "menu_services " + (page - 1) + " " + layout });
+  navRow.push({ title: "‹ " + (page - 1), command: "menu_services " + (page - 1) + " " + layout, style: "primary" });
 }
-navRow.push({ title: page + "/" + totalPages, command: "menu_services " + page + " " + layout });
+navRow.push({ title: page + "/" + totalPages, command: "menu_services " + page + " " + layout, style: "primary" });
 if (page < totalPages) {
-  navRow.push({ title: (page + 1) + " ›", command: "menu_services " + (page + 1) + " " + layout });
+  navRow.push({ title: (page + 1) + " ›", command: "menu_services " + (page + 1) + " " + layout, style: "primary" });
 }
 buttons.push(navRow);
 
-// Layout Toggle row (matching screenshot: Grid | ✓ Linear)
+// Layout Toggle row (Cyan / Primary & Green style matching screenshot)
 buttons.push([
-  { title: (layout == "grid" ? "✓ Grid" : "Grid"), command: "menu_services " + page + " grid" },
-  { title: (layout == "linear" ? "✓ Linear" : "Linear"), command: "menu_services " + page + " linear" }
+  { title: (layout == "grid" ? "✓ Grid" : "Grid"), command: "menu_services " + page + " grid", style: (layout == "grid" ? "success" : "primary") },
+  { title: (layout == "linear" ? "✓ Linear" : "Linear"), command: "menu_services " + page + " linear", style: (layout == "linear" ? "success" : "primary") }
 ]);
 
-// Search row (matching screenshot: 🔮 Search Products)
+// Search row (Cyan / Primary style matching screenshot)
 buttons.push([
-  { title: "🔮 Search Products", command: "srv_search" }
+  { title: "🔮 Search Products", command: "srv_search", style: "primary" }
 ]);
 
-// Main Menu row (matching screenshot: 🏠 Main Menu)
+// Main Menu row (Cyan / Primary style matching screenshot)
 buttons.push([
-  { title: "🏠 Main Menu", command: "/start" }
+  { title: "🏠 Main Menu", command: "/start", style: "primary" }
 ]);
 
 var text = "📱 <b>Virtual SMS Numbers (Page " + page + "/" + totalPages + ")</b>\n" +

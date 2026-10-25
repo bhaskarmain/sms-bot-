@@ -39,6 +39,6 @@ Bot.setProperty("pending_payments_queue", newQueue, "json");
 Bot.setProperty("pay_item_" + payId, null);
 
 Bot.sendInlineKeyboard([
-  [{ title: "💳 Pending Payments", command: "adm_payments" }],
-  [{ title: "🔙 Admin Dashboard", command: "admin_dashboard" }]
+  [{ title: "💳 Pending Payments", command: "adm_payments", style: "primary" }],
+  [{ title: "🔙 Admin Dashboard", command: "admin_dashboard", style: "primary" }]
 ], "❌ <b>Payment #" + payId + " REJECTED</b>\n\nReason: <i>" + reasonText + "</i>");

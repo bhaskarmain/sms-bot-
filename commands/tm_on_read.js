@@ -31,8 +31,8 @@ try {
 
   var buttons = [
     [
-      { title: "🔙 Back to Messages", command: "tm_view_all" },
-      { title: "📧 Temp Mail Home", command: "menu_tempmail" }
+      { title: "🔙 Back to Messages", command: "tm_view_all", style: "primary" },
+      { title: "📧 Temp Mail Home", command: "menu_tempmail", style: "primary" }
     ]
   ];
 

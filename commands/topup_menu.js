@@ -12,17 +12,17 @@ var text = "💳 <b>Add Funds to Wallet</b>\n\n" +
 
 var buttons = [
   [
-    { title: "🟢 ₹50", command: "deposit_qr 50" },
-    { title: "🟢 ₹100", command: "deposit_qr 100" },
-    { title: "🟢 ₹200", command: "deposit_qr 200" }
+    { title: "🟢 ₹50", command: "deposit_qr 50", style: "success" },
+    { title: "🟢 ₹100", command: "deposit_qr 100", style: "success" },
+    { title: "🟢 ₹200", command: "deposit_qr 200", style: "success" }
   ],
   [
-    { title: "🟢 ₹500", command: "deposit_qr 500" },
-    { title: "🟢 ₹1000", command: "deposit_qr 1000" },
-    { title: "✏️ Custom Amount", command: "ask_custom_amt" }
+    { title: "🟢 ₹500", command: "deposit_qr 500", style: "success" },
+    { title: "🟢 ₹1000", command: "deposit_qr 1000", style: "success" },
+    { title: "✏️ Custom Amount", command: "ask_custom_amt", style: "primary" }
   ],
   [
-    { title: "🔙 Back to Wallet", command: "menu_wallet" }
+    { title: "🔙 Back to Wallet", command: "menu_wallet", style: "primary" }
   ]
 ];
 

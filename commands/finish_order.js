@@ -22,6 +22,6 @@ var msg = "✅ <b>Order #" + orderId + " Completed!</b>\n\n" +
   "Need another number? Tap below:";
 
 Bot.sendInlineKeyboard([
-  [{ title: "🟢 Buy Another Number", command: "menu_services" }],
-  [{ title: "🏠 Main Menu", command: "/start" }]
+  [{ title: "🟢 Buy Another Number", command: "menu_services", style: "success" }],
+  [{ title: "🏠 Main Menu", command: "/start", style: "primary" }]
 ], msg);

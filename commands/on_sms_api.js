@@ -21,8 +21,8 @@ if (resp.indexOf("STATUS_OK:") >= 0) {
     "Tap <b>✅ Finish Order</b> once you have verified your account.";
 
   var buttons = [
-    [{ title: "✅ Finish Order", command: "finish_order " + orderId }],
-    [{ title: "🏠 Main Menu", command: "/start" }]
+    [{ title: "✅ Finish Order", command: "finish_order " + orderId, style: "success" }],
+    [{ title: "🏠 Main Menu", command: "/start", style: "primary" }]
   ];
 
   Bot.sendInlineKeyboard(buttons, msg);
@@ -33,10 +33,10 @@ if (resp.indexOf("STATUS_OK:") >= 0) {
     "Please send the OTP request from your application, wait 10-15 seconds, and tap <b>🔄 Refresh SMS Code</b> below.";
 
   var buttons = [
-    [{ title: "🔄 Refresh SMS Code", command: "check_sms " + orderId }],
+    [{ title: "🔄 Refresh SMS Code", command: "check_sms " + orderId, style: "success" }],
     [
-      { title: "❌ Cancel & Refund", command: "cancel_order " + orderId },
-      { title: "🏠 Main Menu", command: "/start" }
+      { title: "❌ Cancel & Refund", command: "cancel_order " + orderId, style: "danger" },
+      { title: "🏠 Main Menu", command: "/start", style: "primary" }
     ]
   ];
 

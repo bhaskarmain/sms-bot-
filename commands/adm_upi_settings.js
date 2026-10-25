@@ -26,15 +26,15 @@ var text = "🏦 <b>UPI Payment Gateway Settings</b>\n\n" +
 
 var buttons = [
   [
-    { title: "✏️ Edit UPI ID", command: "adm_set_upi_id" },
-    { title: "✏️ Edit Payee Name", command: "adm_set_payee_name" }
+    { title: "✏️ Edit UPI ID", command: "adm_set_upi_id", style: "primary" },
+    { title: "✏️ Edit Payee Name", command: "adm_set_payee_name", style: "primary" }
   ],
   [
-    { title: "📉 Min Deposit", command: "adm_set_min_dep" },
-    { title: "📈 Max Deposit", command: "adm_set_max_dep" }
+    { title: "📉 Min Deposit", command: "adm_set_min_dep", style: "primary" },
+    { title: "📈 Max Deposit", command: "adm_set_max_dep", style: "primary" }
   ],
   [
-    { title: "🔙 Back to Dashboard", command: "admin_dashboard" }
+    { title: "🔙 Back to Dashboard", command: "admin_dashboard", style: "primary" }
   ]
 ];
 

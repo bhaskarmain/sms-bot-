@@ -22,7 +22,7 @@ if (!history || history.length === 0) {
 }
 
 var buttons = [
-  [{ title: "🔙 Back to Wallet", command: "menu_wallet" }]
+  [{ title: "🔙 Back to Wallet", command: "menu_wallet", style: "primary" }]
 ];
 
 Bot.sendInlineKeyboard(buttons, text);

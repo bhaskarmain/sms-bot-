@@ -52,8 +52,8 @@ var text = "✅ <b>Payment #" + p.id + " Approved & Credited!</b>\n" +
   "📅 <b>Approved At:</b> " + new Date().toLocaleString();
 
 var buttons = [
-  [{ title: "💳 Pending Payments", command: "adm_payments" }],
-  [{ title: "🔙 Admin Dashboard", command: "admin_dashboard" }]
+  [{ title: "💳 Pending Payments", command: "adm_payments", style: "primary" }],
+  [{ title: "🔙 Admin Dashboard", command: "admin_dashboard", style: "primary" }]
 ];
 
 Bot.sendInlineKeyboard(buttons, text);

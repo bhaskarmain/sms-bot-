@@ -21,24 +21,24 @@ var welcome = "👋 <b>Welcome to SMS Verification Bot!</b>\n\n" +
 
 var buttons = [
   [
-    { title: "🟢 Buy Virtual Numbers 🟢", command: "menu_services" }
+    { title: "🟢 Buy Virtual Numbers 🟢", command: "menu_services", style: "success" }
   ],
   [
-    { title: "💳 Wallet & Deposit", command: "menu_wallet" },
-    { title: "📧 Temporary Email", command: "menu_tempmail" }
+    { title: "💳 Wallet & Deposit", command: "menu_wallet", style: "primary" },
+    { title: "📧 Temporary Email", command: "menu_tempmail", style: "primary" }
   ],
   [
-    { title: "📱 Active Orders", command: "active_orders" },
-    { title: "📜 Order History", command: "menu_history_orders" }
+    { title: "📱 Active Orders", command: "active_orders", style: "primary" },
+    { title: "📜 Order History", command: "menu_history_orders", style: "primary" }
   ],
   [
-    { title: "💬 Help & FAQ", command: "menu_help" }
+    { title: "💬 Help & FAQ", command: "menu_help", style: "primary" }
   ]
 ];
 
 if (user.telegramid == 8789936408) {
   buttons.push([
-    { title: "👑 Admin Control Panel", command: "admin_dashboard" }
+    { title: "👑 Admin Control Panel", command: "admin_dashboard", style: "danger" }
   ]);
 }
 

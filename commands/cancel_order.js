@@ -33,6 +33,6 @@ var text = "❌ <b>Order Cancelled & Refunded</b>\n\n" +
   "The full amount has been returned to your wallet.";
 
 Bot.sendInlineKeyboard([
-  [{ title: "🟢 Buy Numbers", command: "menu_services" }],
-  [{ title: "🏠 Main Menu", command: "/start" }]
+  [{ title: "🟢 Buy Numbers", command: "menu_services", style: "success" }],
+  [{ title: "🏠 Main Menu", command: "/start", style: "primary" }]
 ], text);

@@ -25,12 +25,12 @@ var text = "🔌 <b>SMS Provider Configuration</b>\n\n" +
   "You can change the provider API URL or Key anytime below:";
 
 var buttons = [
-  [{ title: "⚡ Test Provider Connection & Balance", command: "adm_prov_test" }],
+  [{ title: "⚡ Test Provider Connection & Balance", command: "adm_prov_test", style: "success" }],
   [
-    { title: "🌐 Change API URL", command: "adm_prov_set_url" },
-    { title: "🔑 Change API Key", command: "adm_prov_set_key" }
+    { title: "🌐 Change API URL", command: "adm_prov_set_url", style: "primary" },
+    { title: "🔑 Change API Key", command: "adm_prov_set_key", style: "primary" }
   ],
-  [{ title: "🔙 Back to Dashboard", command: "admin_dashboard" }]
+  [{ title: "🔙 Back to Dashboard", command: "admin_dashboard", style: "primary" }]
 ];
 
 Bot.sendInlineKeyboard(buttons, text);

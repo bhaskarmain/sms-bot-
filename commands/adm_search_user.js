@@ -32,10 +32,10 @@ var text = "👤 <b>User Inspection:</b> <code>" + targetId + "</code>\n\n" +
   "Select an administrative action:";
 
 var buttons = [
-  [{ title: (isBanned ? "✅ Unban User" : "🚫 Ban User"), command: "adm_ban_toggle " + targetId }],
-  [{ title: "➕ Add ₹50 Balance", command: "adm_add_bal " + targetId + " 50" }],
-  [{ title: "➕ Add ₹100 Balance", command: "adm_add_bal " + targetId + " 100" }],
-  [{ title: "🔙 Back to Users", command: "adm_users" }]
+  [{ title: (isBanned ? "✅ Unban User" : "🚫 Ban User"), command: "adm_ban_toggle " + targetId, style: isBanned ? "success" : "danger" }],
+  [{ title: "➕ Add ₹50 Balance", command: "adm_add_bal " + targetId + " 50", style: "success" }],
+  [{ title: "➕ Add ₹100 Balance", command: "adm_add_bal " + targetId + " 100", style: "success" }],
+  [{ title: "🔙 Back to Users", command: "adm_users", style: "primary" }]
 ];
 
 Bot.sendInlineKeyboard(buttons, text);

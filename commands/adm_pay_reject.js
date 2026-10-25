@@ -22,10 +22,10 @@ if (!p) {
 }
 
 var buttons = [
-  [{ title: "❌ Invalid / Fake UTR", command: "adm_pay_rej_fast " + payId + " invalid" }],
-  [{ title: "❌ Amount Mismatch", command: "adm_pay_rej_fast " + payId + " mismatch" }],
-  [{ title: "❌ Not Received in Bank", command: "adm_pay_rej_fast " + payId + " not_rec" }],
-  [{ title: "🔙 Cancel", command: "adm_payments" }]
+  [{ title: "❌ Invalid / Fake UTR", command: "adm_pay_rej_fast " + payId + " invalid", style: "danger" }],
+  [{ title: "❌ Amount Mismatch", command: "adm_pay_rej_fast " + payId + " mismatch", style: "danger" }],
+  [{ title: "❌ Not Received in Bank", command: "adm_pay_rej_fast " + payId + " not_rec", style: "danger" }],
+  [{ title: "🔙 Cancel", command: "adm_payments", style: "primary" }]
 ];
 
 Bot.sendInlineKeyboard(buttons, "❌ <b>Reject Payment #" + payId + " (₹" + p.amount.toFixed(2) + ")</b>\n\nSelect a rejection reason below:");

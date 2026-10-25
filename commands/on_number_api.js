@@ -66,12 +66,12 @@ if (resp.indexOf("ACCESS_NUMBER:") >= 0) {
     "Enter this number into your app. When the SMS is sent, tap <b>🔄 Refresh SMS</b> below to fetch your OTP.";
 
   var buttons = [
-    [{ title: "🔄 Refresh SMS Code", command: "check_sms " + orderId }],
+    [{ title: "🔄 Refresh SMS Code", command: "check_sms " + orderId, style: "success" }],
     [
-      { title: "❌ Cancel & Refund", command: "cancel_order " + orderId },
-      { title: "✅ Finish Order", command: "finish_order " + orderId }
+      { title: "❌ Cancel & Refund", command: "cancel_order " + orderId, style: "danger" },
+      { title: "✅ Finish Order", command: "finish_order " + orderId, style: "success" }
     ],
-    [{ title: "🏠 Main Menu", command: "/start" }]
+    [{ title: "🏠 Main Menu", command: "/start", style: "primary" }]
   ];
 
   Bot.sendInlineKeyboard(buttons, msg);
@@ -86,7 +86,7 @@ if (resp.indexOf("ACCESS_NUMBER:") >= 0) {
     "💳 <b>Current Balance:</b> ₹" + (curBal + price).toFixed(2);
 
   Bot.sendInlineKeyboard([
-    [{ title: "🔄 Try Another Service", command: "menu_services" }],
-    [{ title: "🏠 Main Menu", command: "/start" }]
+    [{ title: "🔄 Try Another Service", command: "menu_services", style: "success" }],
+    [{ title: "🏠 Main Menu", command: "/start", style: "primary" }]
   ], failMsg);
 }

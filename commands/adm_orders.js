@@ -18,7 +18,7 @@ var recentOrders = Bot.getProperty("global_recent_orders") || [];
 if (recentOrders.length === 0) {
   var emptyMsg = "📦 <b>Orders Tracking</b>\n\nNo orders found in the database yet.";
   var emptyKb = [
-    [{ title: "🔙 Back to Dashboard", command: "admin_dashboard" }]
+    [{ title: "🔙 Back to Dashboard", command: "admin_dashboard", style: "primary" }]
   ];
   Bot.sendInlineKeyboard(emptyKb, emptyMsg);
   return;
@@ -33,8 +33,8 @@ for (var i = 0; i < Math.min(recentOrders.length, 10); i++) {
 }
 
 var buttons = [
-  [{ title: "🔄 Refresh", command: "adm_orders" }],
-  [{ title: "🔙 Back to Dashboard", command: "admin_dashboard" }]
+  [{ title: "🔄 Refresh", command: "adm_orders", style: "primary" }],
+  [{ title: "🔙 Back to Dashboard", command: "admin_dashboard", style: "primary" }]
 ];
 
 Bot.sendInlineKeyboard(buttons, text);

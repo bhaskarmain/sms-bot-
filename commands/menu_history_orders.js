@@ -21,7 +21,7 @@ if (!history || history.length === 0) {
 }
 
 var buttons = [
-  [{ title: "🔙 Main Menu", command: "/start" }]
+  [{ title: "🔙 Main Menu", command: "/start", style: "primary" }]
 ];
 
 Bot.sendInlineKeyboard(buttons, text);

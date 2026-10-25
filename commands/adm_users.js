@@ -16,14 +16,14 @@ if (!isAdm) {
 var text = "👥 <b>User Management</b>\n\nSelect an option below:";
 var buttons = [
   [
-    { title: "🔍 Search User by ID", command: "adm_search_user" },
-    { title: "👑 Admin Team", command: "adm_admins_menu" }
+    { title: "🔍 Search User by ID", command: "adm_search_user", style: "primary" },
+    { title: "👑 Admin Team", command: "adm_admins_menu", style: "primary" }
   ],
   [
-    { title: "📋 List Recent Users", command: "adm_list_recent_users" }
+    { title: "📋 List Recent Users", command: "adm_list_recent_users", style: "primary" }
   ],
   [
-    { title: "🔙 Back to Dashboard", command: "admin_dashboard" }
+    { title: "🔙 Back to Dashboard", command: "admin_dashboard", style: "primary" }
   ]
 ];
 

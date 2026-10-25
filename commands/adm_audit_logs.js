@@ -27,8 +27,8 @@ if (logs.length === 0) {
 }
 
 var buttons = [
-  [{ title: "🔄 Refresh", command: "adm_audit_logs" }],
-  [{ title: "🔙 Back to Dashboard", command: "admin_dashboard" }]
+  [{ title: "🔄 Refresh", command: "adm_audit_logs", style: "primary" }],
+  [{ title: "🔙 Back to Dashboard", command: "admin_dashboard", style: "primary" }]
 ];
 
 Bot.sendInlineKeyboard(buttons, text);

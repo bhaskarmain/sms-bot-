@@ -61,12 +61,12 @@ for (var j = 0; j < Math.min(matches.length, 8); j++) {
   var m = matches[j];
   var cmd = (m.code == "wa" || m.code == "tg") ? ("c_page " + m.code + " " + m.name.replace(/[\s\/]/g, "_") + " " + m.price + " 1") : ("srv_view " + m.code + " " + m.name.replace(/[\s\/]/g, "_") + " " + m.price + " 1 linear");
   buttons.push([
-    { title: m.icon + " " + m.name + " · ₹" + m.price.toFixed(2), command: cmd }
+    { title: m.icon + " " + m.name + " · ₹" + m.price.toFixed(2), command: cmd, style: "success" }
   ]);
 }
 
 buttons.push([
-  { title: "🔙 Back to Catalog", command: "menu_services" }
+  { title: "🔙 Back to Catalog", command: "menu_services", style: "primary" }
 ]);
 
 Bot.sendInlineKeyboard(buttons, "🔍 <b>Search Results for:</b> <code>" + message + "</code>\n\nTap a service to purchase virtual number:");

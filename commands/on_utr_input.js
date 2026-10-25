@@ -47,7 +47,7 @@ var adminAlert = "🔔 <b>New UPI Deposit Request!</b>\n" +
   "Verify in your bank app and tap Approve below:";
 
 var adminButtons = [
-  [{ title: "✅ Approve & Credit ₹" + amt.toFixed(2), command: "adm_pay_approve " + payId }]
+  [{ title: "✅ Approve & Credit ₹" + amt.toFixed(2), command: "adm_pay_approve " + payId, style: "success" }]
 ];
 
 Bot.sendInlineKeyboardToChatWithId(adminId, adminButtons, adminAlert);
@@ -59,6 +59,6 @@ var userMsg = "⏳ <b>Payment Request Submitted to Admin!</b>\n\n" +
   "Your balance will be credited as soon as the admin verifies your receipt.";
 
 Bot.sendInlineKeyboard([
-  [{ title: "💳 Back to Wallet", command: "menu_wallet" }],
-  [{ title: "🏠 Main Menu", command: "/start" }]
+  [{ title: "💳 Back to Wallet", command: "menu_wallet", style: "primary" }],
+  [{ title: "🏠 Main Menu", command: "/start", style: "primary" }]
 ], userMsg);

@@ -48,19 +48,19 @@ var text = "📧 <b>Temporary Disposable Email</b>\n\n" +
 
 var buttons = [
   [
-    { title: "🔄 Refresh Inbox", command: "tm_refresh" },
-    { title: "🎲 New Email", command: "tm_new" }
+    { title: "🔄 Refresh Inbox", command: "tm_refresh", style: "success" },
+    { title: "🎲 New Email", command: "tm_new", style: "primary" }
   ]
 ];
 
 if (messages.length > 0) {
   buttons.push([
-    { title: "📬 Read All Messages (" + messages.length + ")", command: "tm_view_all" }
+    { title: "📬 Read All Messages (" + messages.length + ")", command: "tm_view_all", style: "success" }
   ]);
 }
 
 buttons.push([
-  { title: "🔙 Main Menu", command: "/start" }
+  { title: "🔙 Main Menu", command: "/start", style: "primary" }
 ]);
 
 Bot.sendInlineKeyboard(buttons, text);

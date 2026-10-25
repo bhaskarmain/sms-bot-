@@ -19,8 +19,8 @@ var text = "🏷 <b>Service Details</b>\n\n" +
   "• Status: <b>" + (isDis ? "🔴 Disabled" : "🟢 Active") + "</b>";
 
 var buttons = [
-  [{ title: (isDis ? "🟢 Enable Service" : "🔴 Disable Service"), command: "adm_srv_toggle " + code }],
-  [{ title: "🔙 Back to Services", command: "adm_services" }]
+  [{ title: (isDis ? "🟢 Enable Service" : "🔴 Disable Service"), command: "adm_srv_toggle " + code, style: isDis ? "success" : "danger" }],
+  [{ title: "🔙 Back to Services", command: "adm_services", style: "primary" }]
 ];
 
 Bot.sendInlineKeyboard(buttons, text);
